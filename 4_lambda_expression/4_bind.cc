@@ -34,13 +34,12 @@ int main()
     cout << "Default version: " << endl;
     printElems(svec);
     //
+    // 使用find_if结合lambda表达式
     // int len = 2;
     // auto it = find_if(svec.begin(), svec.end(), [len](const string &a)
     //                   { return a.size() <= len; });
     //
-    // auto check2 = bind(check_size, _1, 2);
-    // auto it = find_if(svec.begin(), svec.end(), check2);
-    // 
+    // bind生成一个新的 可调用对象 来适应 原对象的参数列表
     auto it = find_if(svec.begin(), svec.end(), bind(check_size, _1, 2));
     cout << "Length less than or equal to 2: " << endl;
     cout << *it << endl;
